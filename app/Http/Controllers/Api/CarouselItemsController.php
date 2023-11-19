@@ -37,7 +37,8 @@ class CarouselItemsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return CarouselItems::findOrfail($id);
+ 
     }
 
     // /**
@@ -61,6 +62,10 @@ class CarouselItemsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $carouselItem = CarouselItems::findOrfail($id);
+ 
+        $carouselItem->delete();
+
+        return $carouselItem;
     }
 }
