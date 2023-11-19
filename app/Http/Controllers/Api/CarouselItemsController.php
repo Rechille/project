@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\CarouselItems;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CarouselItems;
 
 class CarouselItemsController extends Controller
 {
@@ -12,20 +13,20 @@ class CarouselItemsController extends Controller
      */
     public function index()
     {
-        //
+        return CarouselItems::all();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // /**
+    //  * Store a newly created resource in storage.
+    //  */
     public function store(Request $request)
     {
         //
@@ -34,23 +35,23 @@ class CarouselItemsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CarouselItems $carouselItems)
+    public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CarouselItems $carouselItems)
-    {
-        //
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  */
+    // public function edit(string $id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CarouselItems $carouselItems)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +59,7 @@ class CarouselItemsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CarouselItems $carouselItems)
+    public function destroy(string $id)
     {
         //
     }
