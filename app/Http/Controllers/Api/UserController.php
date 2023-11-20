@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -62,14 +61,45 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, string $id)
     {
+        
+        $user = User::findOrfail($id);
+
         $validated = $request->validated();
 
-        $user = User::findOrfail($id);
-    
-            $user->update($validated);
+        $user->name =$validated['name'];
+        
+        $user->save();
 
-            return $user;
+        return $user;
     }
+
+    public function email(UserRequest $request, string $id)
+    {
+        
+        $user = User::findOrfail($id);
+
+        $validated = $request->validated();
+
+        $user->email = $validated['email'];
+        
+        $user->save();
+
+        return $user;
+    }
+
+    public function password(UserRequest $request, string $id)
+    {
+        $user = User::findOrfail($id);
+
+        $validated = $request->validated();
+
+        $user->password = $validated['password'];
+        
+        $user->save();
+
+        return $user;
+    }
+
 
     /**
      * Remove the specified resource from storage.
